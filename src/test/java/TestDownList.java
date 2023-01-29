@@ -3,7 +3,6 @@ import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.Assert.assertEquals;
 
 //Тесты выпадающего списка в разделе "Вопросы о важном"
@@ -13,7 +12,6 @@ public class TestDownList {
 
     @Test
     public void testDownListText() {
-        ChromeOptions options = new ChromeOptions();
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePageSamokat objHomePageSamokat = new HomePageSamokat(driver);
