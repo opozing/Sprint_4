@@ -19,7 +19,8 @@ public class HomePageSamokat {
     private By orderButtonFirst = By.className("Button_Button__ra12g");
 
     //Локатор второй кнопки "Заказать"
-    private By orderButtonSecond = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private By orderButtonSecond = By.xpath(
+            ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     //Локатор блока "Вопросы о важном" с выпадающими списками
     private By downList = By.xpath(
@@ -31,7 +32,7 @@ public class HomePageSamokat {
     //Локатор текста открытого 1 элемента выпадающего списка "Вопросы о важном"
     private By downListFirstOpen = By.xpath(".//div[@id='accordion__panel-0']/p");
 
-    // Конструктор класса
+    // Конструктор
     public HomePageSamokat(WebDriver driver) {
         this.driver = driver;
     }
@@ -54,6 +55,8 @@ public class HomePageSamokat {
 
     //Функция получения текста из выпадайки первого элемента списка
     public String downListFirstOpenText() {
+        new WebDriverWait(driver, 3)
+                .until(ExpectedConditions.elementToBeClickable(downListFirstOpen));
         return driver.findElement(downListFirstOpen).getText();
     }
 

@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.junit.Assert.assertTrue;
+
 //Тесты заказа самоката
 public class TestOrderSamokat {
 
@@ -18,8 +20,14 @@ public class TestOrderSamokat {
         OrderPageSamokat objOrderPageSamokat = new OrderPageSamokat(driver);
         objHomePageSamokat.acceptCookie();
         objHomePageSamokat.clickToOrderButtonFirst();
-        objOrderPageSamokat.inputOrderForm("Сергей", "Устинов", "89215853447");
-
+        objOrderPageSamokat.inputTextForm("Сергей", "Устинов", "89215853447");
+        objOrderPageSamokat.metroSelect("Сокольники");
+        objOrderPageSamokat.clickDoneButton();
+        objOrderPageSamokat.dateSelect("01.02.2023");
+        objOrderPageSamokat.rentPeriodSelect("трое суток");
+        objOrderPageSamokat.clickFinalOrderButton();
+        objOrderPageSamokat.clickYesButton();
+        assertTrue(objOrderPageSamokat.orderDoneCheck());
     }
 
     @Test
@@ -31,7 +39,14 @@ public class TestOrderSamokat {
         objHomePageSamokat.acceptCookie();
         objHomePageSamokat.goToOrderButtonSecond();
         objHomePageSamokat.clickToOrderButtonSecond();
-        objOrderPageSamokat.inputOrderForm("Андрей", "Иванов", "89522455520");
+        objOrderPageSamokat.inputTextForm("Андрей", "Иванов", "89522455520");
+        objOrderPageSamokat.metroSelect("Черкизовская");
+        objOrderPageSamokat.clickDoneButton();
+        objOrderPageSamokat.dateSelect("05.02.2023");
+        objOrderPageSamokat.rentPeriodSelect("сутки");
+        objOrderPageSamokat.clickFinalOrderButton();
+        objOrderPageSamokat.clickYesButton();
+        assertTrue(objOrderPageSamokat.orderDoneCheck());
     }
 
     @After
